@@ -45,7 +45,7 @@ const [newMedicine, setNewMedicine] = useState({
   const fetchMedicines = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/medicines"
+        "import.meta.env.VITE_API_URL/api/medicines"
       );
 
       const data = await response.json();
@@ -106,7 +106,7 @@ const [newMedicine, setNewMedicine] = useState({
   try {
     // First try exact search
 const searchResponse = await fetch(
-  `http://localhost:5000/api/medicines/search/${encodeURIComponent(
+  `import.meta.env.VITE_API_URL/api/medicines/search/${encodeURIComponent(
     medicine.medicine
   )}`
 );
@@ -140,7 +140,7 @@ if (!dbMedicine) {
       if (!saveMedicine) return;
 
       const addResponse = await fetch(
-        "http://localhost:5000/api/medicines",
+        "import.meta.env.VITE_API_URL/api/medicines",
         {
           method: "POST",
           headers: {
@@ -316,7 +316,7 @@ style={{width:"55px"}}
 
       try {
         const searchResponse = await fetch(
-          `http://localhost:5000/api/medicines/search/${encodeURIComponent(
+          `import.meta.env.VITE_API_URL/api/medicines/search/${encodeURIComponent(
             newMedicine.medicine
           )}`
         );
@@ -325,7 +325,7 @@ style={{width:"55px"}}
 
         if (!dbMedicine) {
           const addResponse = await fetch(
-            "http://localhost:5000/api/medicines",
+            "import.meta.env.VITE_API_URL/api/medicines",
             {
               method: "POST",
               headers: {
@@ -345,7 +345,7 @@ style={{width:"55px"}}
           dbMedicine = added.medicine;
 
           const response = await fetch(
-            "http://localhost:5000/api/medicines"
+            "import.meta.env.VITE_API_URL/api/medicines"
           );
           const medicines = await response.json();
           setAllMedicines(medicines);

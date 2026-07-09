@@ -20,7 +20,7 @@ function AddMedicine({ onMedicineAdded }) {
     e.preventDefault();
 
     const response = await fetch(
-      "http://localhost:5000/api/medicines",
+      "import.meta.env.VITE_API_URL/api/medicines",
       {
         method: "POST",
         headers: {

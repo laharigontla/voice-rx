@@ -14,13 +14,13 @@ function DiagnosisManager() {
   }, []);
 
   const fetchDiagnoses = async () => {
-    const res = await fetch("http://localhost:5000/api/diagnoses");
+    const res = await fetch("import.meta.env.VITE_API_URL/api/diagnoses");
     const data = await res.json();
     setDiagnoses(data);
   };
 
   const fetchMedicines = async () => {
-    const res = await fetch("http://localhost:5000/api/medicines");
+    const res = await fetch("import.meta.env.VITE_API_URL/api/medicines");
     const data = await res.json();
     setMedicines(data);
   };
@@ -33,7 +33,7 @@ function DiagnosisManager() {
   }
 
   const response = await fetch(
-    `http://localhost:5000/api/diagnoses/${selectedDiagnosis}/medicines`,
+    `import.meta.env.VITE_API_URL/api/diagnoses/${selectedDiagnosis}/medicines`,
     {
       method: "PUT",
 
