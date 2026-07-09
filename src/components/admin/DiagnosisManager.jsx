@@ -15,13 +15,13 @@ function DiagnosisManager() {
   }, []);
 
   const fetchDiagnoses = async () => {
-    const res = await fetch("import.meta.env.VITE_API_URL/api/diagnoses");
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/diagnoses`);
     const data = await res.json();
     setDiagnoses(data);
   };
 
   const fetchMedicines = async () => {
-    const res = await fetch("import.meta.env.VITE_API_URL/api/medicines");
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/medicines`);
     const data = await res.json();
     setMedicines(data);
   };
@@ -34,7 +34,7 @@ function DiagnosisManager() {
   }
 
   const response = await fetch(
-    `import.meta.env.VITE_API_URL/api/diagnoses/${selectedDiagnosis}/medicines`,
+    `${import.meta.env.VITE_API_URL}/api/diagnoses/${selectedDiagnosis}/medicines`,
     {
       method: "PUT",
 
@@ -58,21 +58,23 @@ function DiagnosisManager() {
       <h2>Diagnosis Management</h2>
 
       <CreatableSelect
-        value={selectedDiagnosis}
-        onChange={(e) => setSelectedDiagnosis(e.target.value)}
-      >
-        <option value="">Select Diagnosis</option>
-
-        {diagnoses.map((diagnosis) => (
-          <option
-            key={diagnosis._id}
-            value={diagnosis._id}
-          >
-            {diagnosis.name}
-          </option>
-        ))}
-
-      </CreatableSelect>
+  options={diagnoses.map((diagnosis) => ({
+    value: diagnosis._id,
+    label: diagnosis.name,
+  }))}
+  value={
+    diagnoses
+      .map((diagnosis) => ({
+        value: diagnosis._id,
+        label: diagnosis.name,
+      }))
+      .find((option) => option.value === selectedDiagnosis)
+  }
+  onChange={(selectedOption) =>
+    setSelectedDiagnosis(selectedOption?.value || "")
+  }
+  placeholder="Select Diagnosis"
+/>
 
       <h3 style={{ marginTop: "20px" }}>
         Select Medicines
