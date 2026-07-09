@@ -383,7 +383,49 @@ style={{width:"55px"}}
             <tr key={index}>
 
               <td style={{ minWidth: "220px" }}>
-        <span>{medicine.medicine}</span>
+  <Select
+    options={medicineOptions}
+    value={
+      medicineOptions.find(
+        (option) => option.value === medicine.medicine
+      ) || {
+        value: medicine.medicine,
+        label: medicine.medicine,
+      }
+    }
+    onChange={(selected) => {
+      const updatedMedicines = [...prescription.medicines];
+
+      updatedMedicines[index].medicine = selected
+        ? selected.value
+        : "";
+
+      setPrescription({
+        ...prescription,
+        medicines: updatedMedicines,
+      });
+    }}
+    onInputChange={(inputValue) => {
+      const updatedMedicines = [...prescription.medicines];
+
+      updatedMedicines[index].medicine = inputValue;
+
+      setPrescription({
+        ...prescription,
+        medicines: updatedMedicines,
+      });
+    }}
+    placeholder="Medicine"
+    isClearable
+    isSearchable
+    menuPortalTarget={document.body}
+    styles={{
+      menuPortal: (base) => ({
+        ...base,
+        zIndex: 9999,
+      }),
+    }}
+  />
 </td>
             
 
@@ -420,7 +462,28 @@ style={{width:"55px"}}
 </td>
 
 <td>
-{medicine.days}
+  <input
+    type="number"
+    min="1"
+    value={medicine.days}
+    onChange={(e) => {
+      const updatedMedicines = [...prescription.medicines];
+
+      updatedMedicines[index].days = e.target.value;
+
+      setPrescription({
+        ...prescription,
+        medicines: updatedMedicines,
+      });
+    }}
+    style={{
+      width: "55px",
+      padding: "5px",
+      textAlign: "center",
+      borderRadius: "4px",
+      border: "1px solid #ccc",
+    }}
+  />
 </td>
 
               <td>
