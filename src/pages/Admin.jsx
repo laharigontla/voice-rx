@@ -18,13 +18,13 @@ function Admin() {
   }, []);
 
   const fetchMedicines = async () => {
-    const res = await fetch("import.meta.env.VITE_API_URL/api/medicines");
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/medicines`);
     const data = await res.json();
     setMedicines(data);
   };
 
   const fetchDiagnoses = async () => {
-    const res = await fetch("import.meta.env.VITE_API_URL/api/diagnoses");
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/diagnoses`);
     const data = await res.json();
     setDiagnoses(data);
   };
@@ -36,12 +36,12 @@ function Admin() {
 
   if (!confirmDelete) return;
 
-  await fetch(
-    `import.meta.env.VITE_API_URL/api/medicines/${id}`,
-    {
-      method: "DELETE",
-    }
-  );
+  aawait fetch(
+  `${import.meta.env.VITE_API_URL}/api/medicines/${id}`,
+  {
+    method: "DELETE",
+  }
+);
 
   fetchMedicines();
 };
