@@ -3,7 +3,7 @@ import Fuse from "fuse.js";
 export async function fuzzyMedicineSearch(spokenMedicine) {
   try {
     // Fetch medicines from MongoDB
-    const response = await fetch("${import.meta.env.VITE_API_URL}/api/medicines");
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/medicines`);
     const medicines = await response.json();
 
     if (!medicines.length) return null;

@@ -56,7 +56,7 @@ function DiagnosisManager() {
     <div style={{ marginTop: "40px" }}>
       <h2>Diagnosis Management</h2>
 
-      <select
+      <CreatableSelect
         value={selectedDiagnosis}
         onChange={(e) => setSelectedDiagnosis(e.target.value)}
       >
@@ -71,7 +71,7 @@ function DiagnosisManager() {
           </option>
         ))}
 
-      </select>
+      </CreatableSelect>
 
       <h3 style={{ marginTop: "20px" }}>
         Select Medicines
