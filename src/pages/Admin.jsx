@@ -36,7 +36,7 @@ function Admin() {
 
   if (!confirmDelete) return;
 
-  aawait fetch(
+  await fetch(
   `${import.meta.env.VITE_API_URL}/api/medicines/${id}`,
   {
     method: "DELETE",
