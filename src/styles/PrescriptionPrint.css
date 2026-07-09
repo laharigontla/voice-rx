@@ -1,0 +1,306 @@
+/* ==========================================
+   Prescription Preview
+========================================== */
+
+.print-preview {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Always white */
+  background: #ffffff;
+  color: #222;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================
+   Live Preview Header
+========================================== */
+
+.preview-live {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.eye {
+  font-size: 22px;
+  color: #2563eb;
+}
+
+.preview-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.preview-subtitle {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ==========================================
+   Hospital Header
+========================================== */
+
+.hospital {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hospital h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #1976d2;
+}
+
+.hospital p {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* ==========================================
+   Divider
+========================================== */
+
+.divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* ==========================================
+   Patient Information
+========================================== */
+
+.patient-section {
+  margin: 25px 0;
+}
+
+.section-heading {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.info-card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-card .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.info-card .value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ==========================================
+   Diagnosis / Advice
+========================================== */
+
+.section-title-print {
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: #2563eb !important;
+  font-weight: 700;
+}
+
+.print-text {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 8px 0;
+  color: #222;
+}
+
+/* ==========================================
+   Medicine Table
+========================================== */
+
+.medicine-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medicine-table th {
+  background: #1976d2;
+  color: white;
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.medicine-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 14px;
+  background: #fff;
+  color: #222;
+}
+
+.empty-cell {
+  text-align: center;
+  padding: 12px;
+}
+
+/* ==========================================
+   Signature
+========================================== */
+
+.signature {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  font-size: 15px;
+}
+
+.date {
+  text-align: right;
+}
+
+/* ==========================================
+   Dark Theme
+   (Keep Prescription White)
+========================================== */
+
+.app-container.dark .print-preview,
+.dark .print-preview {
+  background: #ffffff !important;
+  color: #222 !important;
+}
+
+.app-container.dark .print-preview *,
+.dark .print-preview * {
+  color: inherit;
+}
+
+.app-container.dark .hospital h1,
+.dark .hospital h1 {
+  color: #1976d2 !important;
+}
+
+.app-container.dark .hospital p,
+.dark .hospital p {
+  color: #666 !important;
+}
+
+.app-container.dark .section-heading,
+.app-container.dark .section-title-print,
+.dark .section-heading,
+.dark .section-title-print {
+  color: #2563eb !important;
+}
+
+.app-container.dark .info-card,
+.dark .info-card {
+  background: #f8fafc !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.app-container.dark .info-card .label,
+.dark .info-card .label {
+  color: #64748b !important;
+}
+
+.app-container.dark .info-card .value,
+.dark .info-card .value {
+  color: #111827 !important;
+}
+
+.app-container.dark .medicine-table td,
+.dark .medicine-table td {
+  background: #ffffff !important;
+  color: #222 !important;
+}
+
+.app-container.dark .divider,
+.dark .divider {
+  border-top: 1px solid #ddd !important;
+}
+
+/* ==========================================
+   Print
+========================================== */
+
+@media print {
+
+  body * {
+    visibility: hidden;
+  }
+
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+
+  #print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 20px;
+
+    background: white !important;
+    color: black !important;
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .toolbar,
+  .left-panel,
+  .navbar {
+    display: none !important;
+  }
+
+  .right-panel {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+}
