@@ -99,8 +99,8 @@
 
 .patient-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .info-card {
@@ -150,12 +150,12 @@
    Medicine Table
 ========================================== */
 
-.medicine-table {
+.print-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.medicine-table th {
+.print-table th {
   background: #1976d2;
   color: white;
   padding: 8px;
@@ -163,7 +163,7 @@
   font-size: 14px;
 }
 
-.medicine-table td {
+.print-table td {
   padding: 8px;
   border: 1px solid #ccc;
   text-align: center;
@@ -193,63 +193,66 @@
 }
 
 /* ==========================================
-   Dark Theme
-   (Keep Prescription White)
+   Mobile Responsive
 ========================================== */
 
-.app-container.dark .print-preview,
-.dark .print-preview {
-  background: #ffffff !important;
-  color: #222 !important;
+@media (max-width:768px){
+
+.print-preview{
+    width:100%;
+    max-width:100%;
+    padding:15px;
+    overflow:hidden;
 }
 
-.app-container.dark .print-preview *,
-.dark .print-preview * {
-  color: inherit;
+.hospital h1{
+    font-size:24px;
 }
 
-.app-container.dark .hospital h1,
-.dark .hospital h1 {
-  color: #1976d2 !important;
+.hospital p{
+    font-size:15px;
 }
 
-.app-container.dark .hospital p,
-.dark .hospital p {
-  color: #666 !important;
+.patient-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
 }
 
-.app-container.dark .section-heading,
-.app-container.dark .section-title-print,
-.dark .section-heading,
-.dark .section-title-print {
-  color: #2563eb !important;
+.info-card{
+    padding:10px;
 }
 
-.app-container.dark .info-card,
-.dark .info-card {
-  background: #f8fafc !important;
-  border: 1px solid #e5e7eb !important;
+.info-card .label{
+    font-size:11px;
 }
 
-.app-container.dark .info-card .label,
-.dark .info-card .label {
-  color: #64748b !important;
+.info-card .value{
+    font-size:15px;
 }
 
-.app-container.dark .info-card .value,
-.dark .info-card .value {
-  color: #111827 !important;
+.print-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
 }
 
-.app-container.dark .medicine-table td,
-.dark .medicine-table td {
-  background: #ffffff !important;
-  color: #222 !important;
+.print-table{
+    min-width:420px;
 }
 
-.app-container.dark .divider,
-.dark .divider {
-  border-top: 1px solid #ddd !important;
+.section-title-print{
+    font-size:22px;
+}
+
+.signature{
+    flex-direction:column;
+    gap:25px;
+}
+
+.date{
+    text-align:left;
+}
+
 }
 
 /* ==========================================

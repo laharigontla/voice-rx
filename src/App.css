@@ -96,14 +96,13 @@ body,
 }
 
 .left-panel {
-  flex: 2.4;
+  flex: 2;
   min-width: 0;
 }
 
 .right-panel {
-  width: 480px;
-  min-width: 480px;
-  flex-shrink: 0;
+  min-width: 320px;
+  flex: 1;
   position: sticky;
   top: 15px;
 }
@@ -169,14 +168,32 @@ body,
 }
 /* ================= Responsive ================= */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
   .main-layout {
     flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    min-width: 100%;
   }
 
   .right-panel {
+    position: static;
+    top: auto;
+  }
+
+  .patient-card {
     width: 100%;
+  }
+
+  #print-area {
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 
@@ -260,3 +277,40 @@ select:focus {
   border-color: #1976d2;
   box-shadow: 0 0 0 3px rgba(25,118,210,0.15);
 }
+
+.medicine-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.medicine-table{
+    width:100%;
+    min-width:700px;
+    border-collapse:collapse;
+}
+
+.print-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.print-table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+
+@media (max-width:768px){
+
+.print-table th,
+.print-table td{
+    font-size:11px;
+    padding:6px 3px;
+    word-break:break-word;
+}
+
+}
+

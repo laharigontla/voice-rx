@@ -96,7 +96,8 @@ function PrescriptionPrint({ prescription }) {
 
       <SectionTitle>Medicines</SectionTitle>
 
-      <table className="medicine-table">
+<div className="print-table-wrapper">
+      <table className="print-table">
 
         <thead>
 
@@ -157,7 +158,7 @@ function PrescriptionPrint({ prescription }) {
         </tbody>
 
       </table>
-
+</div>
       <hr className="divider" />
 
       <SectionTitle>Advice</SectionTitle>

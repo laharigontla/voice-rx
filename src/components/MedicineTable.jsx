@@ -140,7 +140,7 @@ if (!dbMedicine) {
       if (!saveMedicine) return;
 
       const addResponse = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/medicines",
+        `${import.meta.env.VITE_API_URL}/api/medicines`,
         {
           method: "POST",
           headers: {
@@ -196,7 +196,8 @@ if (!dbMedicine) {
 />
       </div>
 
-      <table>
+<div className="medicine-table-wrapper">
+      <table className="medicine-table">
         <thead>
           <tr>
             <th>Medicine</th>
@@ -325,7 +326,7 @@ style={{width:"55px"}}
 
         if (!dbMedicine) {
           const addResponse = await fetch(
-            "${import.meta.env.VITE_API_URL}/api/medicines",
+            `${import.meta.env.VITE_API_URL}/api/medicines`,
             {
               method: "POST",
               headers: {
@@ -345,7 +346,7 @@ style={{width:"55px"}}
           dbMedicine = added.medicine;
 
           const response = await fetch(
-            "${import.meta.env.VITE_API_URL}/api/medicines"
+            `${import.meta.env.VITE_API_URL}/api/medicines`
           );
           const medicines = await response.json();
           setAllMedicines(medicines);
@@ -508,6 +509,7 @@ style={{width:"55px"}}
           ))}
         </tbody>
       </table>
+</div>
 
       {/* ================= Quick Medicine Suggestions ================= */}
 
